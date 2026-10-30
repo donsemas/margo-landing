@@ -1,0 +1,72 @@
+---
+import { heroStats } from '../data/content';
+---
+<section class="hero">
+  <div class="hero-deco hero-deco--left" aria-hidden="true">
+    <svg viewBox="0 0 120 200" fill="none"><path d="M60 10 C40 50 20 80 30 120 C35 145 50 170 60 190" stroke="currentColor" stroke-width="1.5"/><path d="M60 40 C45 55 25 70 35 95" stroke="currentColor" stroke-width="1"/><path d="M60 70 C75 85 95 100 85 125" stroke="currentColor" stroke-width="1"/><circle cx="35" cy="95" r="6" fill="currentColor" opacity=".6"/><circle cx="85" cy="125" r="5" fill="currentColor" opacity=".4"/></svg>
+  </div>
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <p class="hero-label">
+        <span class="label-dot"></span>
+        Копирайтер · редактор · стратег
+      </p>
+      <h1 class="hero-title">
+        Тексты с<br>
+        <em>характером</em><br>
+        и теплом
+      </h1>
+      <p class="hero-desc">
+        Помогаю брендам говорить ясно и убедительно —
+        с той же заботой, с какой подбирают каждую деталь.
+        7 лет опыта, 120+ проектов.
+      </p>
+      <div class="hero-actions">
+        <a href="#works" class="btn btn-primary">Смотреть работы</a>
+        <a href="#contact" class="btn btn-outline">Обсудить проект</a>
+      </div>
+      <div class="hero-stats">
+        {heroStats.map((stat, i) => (
+          <>
+            {i > 0 && <div class="stat-divider"></div>}
+            <div class="stat">
+              <span class="stat-num">{stat.num}</span>
+              <span class="stat-label">{stat.label}</span>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay">
+      <div class="hero-frame">
+        <div class="hero-pedestal">
+          <img src="/images/rita-photo.jpg" alt="Маргарита Донских — копирайтер за работой" class="hero-image" width="640" height="800" fetchpriority="high" decoding="async">
+        </div>
+        <div class="hero-float hero-float--quote">
+          <span class="float-icon">✦</span>
+          <p>«Каждое слово —<br>как лепесток:<br>на своём месте»</p>
+        </div>
+        <div class="hero-float hero-float--badge">
+          <span class="badge-year">2025</span>
+          <span class="badge-text">Copy Awards<br>Топ-10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>лендинги</span><span class="marquee-dot">◆</span>
+      <span>email-маркетинг</span><span class="marquee-dot">◆</span>
+      <span>бренд-голос</span><span class="marquee-dot">◆</span>
+      <span>UX-тексты</span><span class="marquee-dot">◆</span>
+      <span>статьи</span><span class="marquee-dot">◆</span>
+      <span>скрипты</span><span class="marquee-dot">◆</span>
+      <span>лендинги</span><span class="marquee-dot">◆</span>
+      <span>email-маркетинг</span><span class="marquee-dot">◆</span>
+      <span>бренд-голос</span><span class="marquee-dot">◆</span>
+      <span>UX-тексты</span><span class="marquee-dot">◆</span>
+      <span>статьи</span><span class="marquee-dot">◆</span>
+      <span>скрипты</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+</section>

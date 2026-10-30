@@ -1,0 +1,29 @@
+---
+import { works } from '../data/content';
+---
+<section class="works section" id="works">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Портфолио</span>
+      <h2 class="section-title">Избранные <em>проекты</em></h2>
+    </div>
+    <div class="works-list">
+      {works.map((work) => (
+        <article class="work-item reveal">
+          <div class="work-meta">
+            <span class="work-num">{work.num}</span>
+            <span class="work-tag">{work.tag}</span>
+          </div>
+          <div class="work-body">
+            <h3>{work.title}</h3>
+            <p>{work.text}</p>
+          </div>
+          <div class="work-result">
+            <span class="result-value">{work.value}</span>
+            <span class="result-label">{work.label}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

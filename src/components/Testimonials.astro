@@ -1,0 +1,23 @@
+---
+import { testimonials } from '../data/content';
+---
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-tag section-tag--light">Отзывы</span>
+      <h2 class="section-title section-title--light">Что говорят <em>клиенты</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map((t, i) => (
+        <blockquote class={`testimonial reveal${i % 2 === 1 ? ' reveal-delay' : ''}`}>
+          <div class="testimonial-mark">"</div>
+          <p>{t.text}</p>
+          <footer>
+            <cite>{t.author}</cite>
+            <span>{t.role}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.playwright-mcp/
+dev.log
+*.png
+
+# Local environment files
+.env
+.env.*
+!.env.example
+*.local

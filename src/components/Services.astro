@@ -1,0 +1,21 @@
+---
+import { services } from '../data/content';
+---
+<section class="services section" id="services">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-tag">Услуги</span>
+      <h2 class="section-title">Чем могу <em>помочь</em></h2>
+    </div>
+    <div class="services-grid">
+      {services.map((service, i) => (
+        <article class={`service-card reveal${i % 2 === 1 ? ' reveal-delay' : ''}`}>
+          <div class="service-num">{service.num}</div>
+          <h3>{service.title}</h3>
+          <p>{service.text}</p>
+          <span class="service-price">{service.price}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
