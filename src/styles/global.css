@@ -942,6 +942,18 @@ html:not([data-theme="dark"]) .theme-toggle .icon-moon { display: none; }
   text-align: center;
 }
 
+.testimonials-more .btn-outline {
+  color: var(--text-light);
+  border-color: rgba(250, 248, 244, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.testimonials-more .btn-outline:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* ===== Contact ===== */
 .contact { background: var(--cream-light); }
 
