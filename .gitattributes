@@ -1,4 +1,6 @@
-# Исключаем CSS из языковой статистики GitHub —
+# Исключаем CSS/HTML из языковой статистики GitHub —
 # чтобы основной язык репозитория определялся как Astro
+# (HTML остался только от старой версии в old/)
 *.css linguist-vendored
+*.html linguist-vendored
 *.map linguist-vendored
