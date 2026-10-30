@@ -10,20 +10,36 @@ document.addEventListener('DOMContentLoaded', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  burger.addEventListener('click', () => {
-    const isOpen = burger.classList.toggle('active');
+  const setMenuState = (isOpen) => {
+    burger.classList.toggle('active', isOpen);
     mobileMenu.classList.toggle('open', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Меню');
+    mobileMenu.inert = !isOpen;
     document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  setMenuState(false);
+
+  burger.addEventListener('click', () => {
+    const isOpen = !burger.classList.contains('active');
+    setMenuState(isOpen);
+    if (isOpen) {
+      mobileMenu.querySelector('a').focus({ preventScroll: true });
+    }
   });
 
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      burger.classList.remove('active');
-      mobileMenu.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      setMenuState(false);
     });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setMenuState(false);
+      burger.focus({ preventScroll: true });
+    }
   });
 
   const revealObserver = new IntersectionObserver(
@@ -42,7 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+
+      let target = null;
+      try {
+        target = document.querySelector(href);
+      } catch {
+        return;
+      }
+
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });

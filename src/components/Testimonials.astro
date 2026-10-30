@@ -1,5 +1,5 @@
 ---
-import { testimonials } from '../data/content';
+import { testimonials, profiUrl } from '../data/content';
 ---
 <section class="testimonials section">
   <div class="container">
@@ -16,8 +16,16 @@ import { testimonials } from '../data/content';
             <cite>{t.author}</cite>
             <span>{t.role}</span>
           </footer>
+          <a href={t.link} target="_blank" rel="noopener" class="testimonial-source">
+            Читать оригинал на Профи.ру →
+          </a>
         </blockquote>
       ))}
+    </div>
+    <div class="testimonials-more reveal">
+      <a href={profiUrl} target="_blank" rel="noopener" class="btn btn-outline">
+        Все отзывы на Профи.ру →
+      </a>
     </div>
   </div>
 </section>
