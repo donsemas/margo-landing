@@ -1,0 +1,4 @@
+# Исключаем CSS из языковой статистики GitHub —
+# чтобы основной язык репозитория определялся как Astro
+*.css linguist-vendored
+*.map linguist-vendored
