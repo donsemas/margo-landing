@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { caseStudies } from '../../data/case-studies';
+
+export function getStaticPaths() {
+  return caseStudies.map((c) => ({
+    params: { slug: c.slug },
+    props: { study: c },
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="case section">
+      <div class="container">
+        <div class="case-header reveal">
+          <a href="/#works" class="case-back">← Все работы</a>
+          <div class="case-meta">
+            <span class="work-tag">{study.tag}</span>
+            <span class="case-type">{study.type}</span>
+          </div>
+          <h1 class="section-title">{study.title}</h1>
+          <p class="case-intro">{study.intro}</p>
+        </div>
+
+        <div class="case-sections">
+          {study.sections.map((section) => (
+            <div class="case-section reveal">
+              <h2 class="case-section-title">{section.heading}</h2>
+              <div class="case-blocks">
+                {section.blocks.map((block) => (
+                  <div class="case-block">
+                    {block.label && <div class="case-block-label">{block.label}</div>}
+                    <div class="case-block-body" set:html={block.html} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="case-footer reveal">
+          <a href="/#contact" class="btn btn-primary">Обсудить похожую задачу</a>
+          <a href="/#works" class="btn btn-outline">Другие работы</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

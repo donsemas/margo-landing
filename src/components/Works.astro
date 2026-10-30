@@ -9,7 +9,7 @@ import { works } from '../data/content';
     </div>
     <div class="works-list">
       {works.map((work) => (
-        <article class="work-item reveal">
+        <a href={`/works/${work.slug}`} class="work-item reveal" aria-label={`${work.title} — подробнее`}>
           <div class="work-meta">
             <span class="work-num">{work.num}</span>
             <span class="work-tag">{work.tag}</span>
@@ -22,7 +22,10 @@ import { works } from '../data/content';
             <span class="result-value work-type-value">{work.type}</span>
             <span class="result-label">формат работы</span>
           </div>
-        </article>
+          <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
       ))}
     </div>
   </div>

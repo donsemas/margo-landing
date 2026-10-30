@@ -53,7 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) applyTheme(savedTheme);
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else if (themeToggle) {
+    const isDark = document.documentElement.hasAttribute('data-theme');
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+  }
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';

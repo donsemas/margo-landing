@@ -24,6 +24,7 @@ export const services = [
 export const works = [
   {
     num: '01',
+    slug: 'anastasia',
     tag: 'Ювелирная мастерская',
     type: 'SEO-тексты + блог',
     title: 'Anastasia (Санкт-Петербург)',
@@ -31,6 +32,7 @@ export const works = [
   },
   {
     num: '02',
+    slug: 'lyumini',
     tag: 'Детский сад',
     type: 'Комплект текстов для сайта',
     title: '«Люмини» (Москва)',
@@ -38,6 +40,7 @@ export const works = [
   },
   {
     num: '03',
+    slug: 'amocrm',
     tag: 'SaaS',
     type: 'Email-рассылка',
     title: 'amoCRM',
@@ -45,6 +48,7 @@ export const works = [
   },
   {
     num: '04',
+    slug: 'novinki18',
     tag: 'Салон красоты',
     type: 'Продающий текст',
     title: '«Новинки 18»',
@@ -52,6 +56,7 @@ export const works = [
   },
   {
     num: '05',
+    slug: 'vorota',
     tag: 'Строительство / B2B',
     type: 'SEO-статья',
     title: 'Секционные ворота: гид 2026',
@@ -59,6 +64,7 @@ export const works = [
   },
   {
     num: '06',
+    slug: '33navesa',
     tag: 'Навесы из поликарбоната',
     type: 'Сайт + посты для Telegram',
     title: '«33Навеса»',
