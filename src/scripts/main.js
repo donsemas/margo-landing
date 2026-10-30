@@ -42,6 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const themeToggle = document.getElementById('theme-toggle');
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggle.setAttribute('aria-pressed', 'true');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeToggle.setAttribute('aria-pressed', 'false');
+    }
+  };
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) applyTheme(savedTheme);
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
